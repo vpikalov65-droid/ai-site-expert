@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AI Site Expert — UX-аудит сайта</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="AI Site Expert, главная"><span class="brand-icon" aria-hidden="true">ae</span>AI Site Expert</a>
+      <span class="badge">UX-аудит · AI</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Свежий взгляд на ваш сайт</p>
+        <h1 id="page-title">Хороший сайт начинается<br>с <span>понятного опыта.</span></h1>
+        <p class="lead">Узнайте, что работает, что мешает пользователям<br class="desktop-break"> и как сделать страницу лучше.</p>
+      </section>
+      <section class="analysis-panel" aria-label="Новый анализ">
+        <form id="analysis-form">
+          <label for="site-url">Адрес страницы</label>
+          <div class="input-row">
+            <input id="site-url" name="url" type="url" placeholder="https://example.com" required maxlength="2083" autocomplete="url" spellcheck="false" aria-describedby="url-hint">
+            <button id="analyze-button" type="submit">Анализировать <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="url-hint" class="hint">Укажите полный адрес с http:// или https://</p>
+        </form>
+        <div class="panel-note"><span aria-hidden="true">✦</span><p>Анализируется текст одной страницы. Визуальный дизайн не оценивается. Текст передаётся OpenAI; запуск использует ваш платный API.</p></div>
+      </section>
+      <div id="progress" class="progress" role="status" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        <div><strong>Анализируем страницу</strong><p>Загружаем текст и готовим рекомендации. Это может занять несколько минут.</p></div>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <section id="results" aria-labelledby="results-title" aria-busy="false">
+        <div class="section-heading"><h2 id="results-title">Ваш UX-отчёт</h2><span id="report-status">Что вы получите</span></div>
+        <p id="report-url" class="report-url" hidden></p>
+        <div class="cards">
+          <article class="card strengths"><div class="card-heading"><span class="card-icon" aria-hidden="true">+</span><span class="count">03</span></div><h3>Сильные стороны</h3><p class="card-caption">На что уже можно опереться</p><ol id="strengths"><li class="placeholder">Здесь появятся три достоинства страницы.</li></ol></article>
+          <article class="card weaknesses"><div class="card-heading"><span class="card-icon" aria-hidden="true">−</span><span class="count">03</span></div><h3>Слабые стороны</h3><p class="card-caption">Что требует внимания</p><ol id="weaknesses"><li class="placeholder">Здесь появятся три слабых места страницы.</li></ol></article>
+          <article class="card recommendations"><div class="card-heading"><span class="card-icon" aria-hidden="true">↗</span><span class="count">05</span></div><h3>Рекомендации</h3><p class="card-caption">Конкретные шаги к улучшению</p><ol id="recommendations"><li class="placeholder">Здесь появятся пять рекомендаций по улучшению.</li></ol></article>
+        </div>
+        <p id="completion" class="completion" role="status"></p>
+      </section>
+    </main>
+    <footer><span>AI Site Expert</span><span>Внимание к деталям. Забота о пользователе.</span></footer>
+  </div>
+</body>
+</html>
